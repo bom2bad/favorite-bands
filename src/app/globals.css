@@ -1,0 +1,309 @@
+/* ============================================================
+   Favorite Bands — design tokens
+   Palette pulled from the collection itself: Steve Lacy's blue/
+   coral sleeve art, Yented's warm gold-on-black look.
+   ============================================================ */
+
+:root {
+  --ink: #1b2130;
+  --ink-soft: rgba(27, 33, 48, 0.68);
+  --paper: #f3ecda;
+  --paper-dim: #e9e0c9;
+  --navy: #14192b;
+  --navy-raised: #1c2338;
+  --amber: #e3a23c;
+  --coral: #e1472e;
+  --line: rgba(243, 236, 218, 0.14);
+
+  --radius-card: 6px;
+  --font-body: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--navy);
+  color: var(--paper);
+  font-family: var(--font-body);
+}
+
+/* ============================================================
+   Page shell
+   ============================================================ */
+
+.bands-page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+/* Header */
+
+.bands-header {
+  max-width: 560px;
+  margin: 0 0 56px;
+}
+
+.bands-header .subtitle {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--amber);
+  padding: 3px 10px 4px;
+  border-radius: 3px;
+  transform: rotate(-1.5deg);
+  margin: 0 0 18px;
+}
+
+.bands-header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin: 0 0 14px;
+  color: var(--paper);
+}
+
+.bands-header > p:last-child {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(243, 236, 218, 0.6);
+  max-width: 46ch;
+}
+
+/* Thai-only simple header (plain <h1>, no wrapper markup) */
+
+main > h1:first-child {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--paper);
+  margin: 64px 24px 40px;
+  max-width: 1080px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* ============================================================
+   Card grid — supports both class names in use across the
+   two page.tsx versions (bands-grid / band-grid)
+   ============================================================ */
+
+.bands-grid,
+.band-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-inline: 24px;
+}
+
+/* ============================================================
+   Band card — styled like a record sleeve pulled from a crate
+   ============================================================ */
+
+.band-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+  border-radius: var(--radius-card);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 12px 24px -12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.band-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: var(--amber);
+  z-index: 2;
+}
+
+/* Cycle the spine color so a row of sleeves doesn't feel uniform */
+.bands-grid > :nth-child(3n + 2)::before,
+.band-grid > :nth-child(3n + 2)::before {
+  background: var(--coral);
+}
+
+.bands-grid > :nth-child(3n + 3)::before,
+.band-grid > :nth-child(3n + 3)::before {
+  background: var(--ink);
+}
+
+.band-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 20px 32px -14px rgba(0, 0, 0, 0.55);
+}
+
+.band-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--paper-dim);
+  border-bottom: 1px solid rgba(27, 33, 48, 0.08);
+}
+
+.band-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.band-content {
+  position: relative;
+  padding: 20px 22px 24px 26px;
+}
+
+/* Format sticker — "Solo Artist" / "Band" — sits on the sleeve
+   photo like a stamped tag from a record store bin */
+
+.band-type {
+  position: absolute;
+  top: -46px;
+  left: 12px;
+  z-index: 3;
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: rgba(20, 25, 43, 0.78);
+  border: 1px solid rgba(243, 236, 218, 0.35);
+  padding: 4px 9px;
+  border-radius: 3px;
+  transform: rotate(-2deg);
+}
+
+.band-content h2 {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+/* Genre shown as a small record-label sticker */
+
+.band-content .genre {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 14px;
+  padding: 3px 10px 3px 8px;
+  border-radius: 20px;
+  background: var(--navy);
+  color: var(--paper);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.band-content .genre::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  flex-shrink: 0;
+}
+
+.band-content > p:not(.genre) {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.band-content h3 {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(27, 33, 48, 0.45);
+  margin: 22px 0 10px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(27, 33, 48, 0.1);
+}
+
+/* Members as a tracklist */
+
+.band-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: track;
+}
+
+.band-content li {
+  counter-increment: track;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 13.5px;
+  color: var(--ink);
+  padding: 5px 0;
+}
+
+.band-content li::before {
+  content: counter(track, decimal-leading-zero);
+  color: var(--amber);
+  font-weight: 700;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.band-content li strong {
+  font-weight: 600;
+}
+
+.band-content li span {
+  color: var(--ink-soft);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 850px) {
+  .bands-grid,
+  .band-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .bands-page {
+    padding: 40px 18px 72px;
+  }
+
+  main > h1:first-child {
+    margin: 40px 18px 28px;
+    padding-inline: 0;
+    font-size: 32px;
+  }
+
+  .bands-grid,
+  .band-grid {
+    grid-template-columns: 1fr;
+    padding-inline: 18px;
+  }
+
+  .bands-header h1 {
+    font-size: 34px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .band-card {
+    transition: none;
+  }
+}
