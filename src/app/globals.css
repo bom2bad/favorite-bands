@@ -307,3 +307,515 @@ main > h1:first-child {
     transition: none;
   }
 }
+/* ============================================================
+   Band Members Detail Page
+   ============================================================ */
+
+.band-detail-page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+/* ปุ่มกลับ */
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 32px;
+  padding: 10px 16px;
+
+  color: var(--paper);
+  background: var(--navy-raised);
+
+  border: 1px solid var(--line);
+  border-radius: 6px;
+
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.back-link:hover {
+  background: var(--amber);
+  color: var(--navy);
+  transform: translateX(-4px);
+}
+
+
+/* Header หน้าวง */
+
+.band-detail-header {
+  margin-bottom: 48px;
+}
+
+.band-detail-header h1 {
+  margin: 0 0 12px;
+
+  color: var(--paper);
+
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.band-detail-header p {
+  margin: 0;
+
+  color: rgba(243, 236, 218, 0.65);
+
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+/* Grid สมาชิก */
+
+.members-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 28px;
+}
+
+
+/* Card สมาชิก */
+
+.member-card {
+  overflow: hidden;
+
+  background: var(--paper);
+
+  border-radius: var(--radius-card);
+
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.2),
+    0 12px 24px -12px rgba(0, 0, 0, 0.5);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.2),
+    0 20px 35px -14px rgba(0, 0, 0, 0.65);
+}
+
+
+/* รูปสมาชิก */
+
+.member-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  background: var(--paper-dim);
+}
+
+.member-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.35s ease;
+}
+
+.member-card:hover .member-image img {
+  transform: scale(1.06);
+}
+
+
+/* ข้อมูลสมาชิก */
+
+.member-info {
+  padding: 20px;
+}
+
+.member-info h2 {
+  margin: 0 0 8px;
+
+  color: var(--ink);
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.member-info p {
+  display: inline-block;
+
+  margin: 0;
+
+  padding: 5px 12px;
+
+  border-radius: 20px;
+
+  background: var(--navy);
+
+  color: var(--paper);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* Responsive Tablet */
+
+@media (max-width: 900px) {
+  .members-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .band-detail-header h1 {
+    font-size: 40px;
+  }
+}
+
+
+/* Responsive Mobile */
+
+@media (max-width: 600px) {
+  .band-detail-page {
+    padding: 40px 18px 64px;
+  }
+
+  .members-grid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .band-detail-header {
+    margin-bottom: 32px;
+  }
+
+  .band-detail-header h1 {
+    font-size: 32px;
+  }
+
+  .member-info h2 {
+    font-size: 20px;
+  }
+}
+
+/* ============================================================
+   Search / Sort / Clear Toolbar
+   ============================================================ */
+
+.bands-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  margin: 0 auto 24px;
+  max-width: 1080px;
+  padding: 0 24px;
+}
+
+/* ช่องค้นหา */
+
+.bands-toolbar input {
+  height: 40px;
+  width: 230px;
+
+  padding: 0 13px;
+
+  border: 1px solid rgba(243, 236, 218, 0.2);
+  border-radius: 6px;
+
+  background: var(--navy-raised);
+  color: var(--paper);
+
+  font-family: var(--font-body);
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.bands-toolbar input::placeholder {
+  color: rgba(243, 236, 218, 0.45);
+}
+
+.bands-toolbar input:focus {
+  border-color: var(--amber);
+
+  box-shadow: 0 0 0 3px rgba(227, 162, 60, 0.12);
+}
+
+
+/* ช่องเรียงลำดับ */
+
+.bands-toolbar select {
+  height: 40px;
+
+  padding: 0 13px;
+
+  border: 1px solid rgba(243, 236, 218, 0.2);
+  border-radius: 6px;
+
+  background: var(--navy-raised);
+  color: var(--paper);
+
+  font-family: var(--font-body);
+  font-size: 14px;
+
+  outline: none;
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.bands-toolbar select:hover,
+.bands-toolbar select:focus {
+  border-color: var(--amber);
+
+  box-shadow: 0 0 0 3px rgba(227, 162, 60, 0.12);
+}
+
+
+/* ปุ่มล้างเงื่อนไข */
+
+.bands-toolbar > button {
+  height: 40px;
+
+  padding: 0 15px;
+
+  border: 1px solid rgba(243, 236, 218, 0.2);
+  border-radius: 6px;
+
+  background: var(--navy-raised);
+  color: var(--paper);
+
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.bands-toolbar > button:hover {
+  background: var(--amber);
+  color: var(--navy);
+
+  border-color: var(--amber);
+
+  transform: translateY(-2px);
+}
+
+.bands-toolbar > button:active {
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   Band Action Buttons
+   ติดตาม / ถูกใจ
+   ============================================================ */
+
+.band-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 16px;
+  margin-bottom: 18px;
+}
+
+.band-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 36px;
+  padding: 7px 13px;
+
+  border: 1px solid rgba(27, 33, 48, 0.16);
+  border-radius: 5px;
+
+  background: var(--navy);
+  color: var(--paper);
+
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.band-actions button:hover {
+  transform: translateY(-2px);
+
+  background: var(--amber);
+  color: var(--navy);
+
+  border-color: var(--amber);
+}
+
+.band-actions button:active {
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   ดูรูปสมาชิกวง
+   ============================================================ */
+
+.members-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding-top: 16px;
+
+  border-top: 1px solid rgba(27, 33, 48, 0.12);
+}
+
+.members-heading h3 {
+  margin: 0;
+
+  color: var(--ink);
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.members-heading a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px 12px;
+
+  border: 1px solid var(--navy);
+
+  border-radius: 5px;
+
+  background: transparent;
+  color: var(--navy);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.members-heading a:hover {
+  background: var(--navy);
+  color: var(--paper);
+
+  transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   Members List
+   ============================================================ */
+
+.band-content ul {
+  margin: 12px 0 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.band-content li {
+  display: flex;
+  align-items: baseline;
+
+  gap: 5px;
+
+  padding: 5px 0;
+
+  color: var(--ink-soft);
+
+  font-size: 13px;
+}
+
+.band-content li strong {
+  color: var(--ink);
+
+  font-weight: 700;
+}
+
+.band-content li::before {
+  content: "01";
+
+  color: var(--amber);
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .bands-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .bands-controls input,
+  .bands-controls select,
+  .bands-controls button {
+    width: 100%;
+  }
+
+  .band-actions {
+    width: 100%;
+  }
+
+  .band-actions button {
+    flex: 1;
+  }
+
+  .members-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .members-heading a {
+    width: 100%;
+  }
+}

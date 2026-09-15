@@ -113,7 +113,7 @@ export const bands: Band[] = [
       id: 4,
       name: "ตง",
       role: "Drum",
-      image: "/images/members/tong.jpg"
+      image: "/images/members/tong.gif"
     },
   ],
   yearFounded: 2006
