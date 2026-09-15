@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import BandCard from "@/components/BandCard";
 import { bands } from "@/data/bands";
