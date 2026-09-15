@@ -2,6 +2,7 @@ export type Member = {
   id: number;
   name: string;
   role: string;
+  image: string;
 };
 
 export type Band = {
@@ -11,5 +12,6 @@ export type Band = {
   genre: string;
   description: string;
   image: string;
+  yearFounded: number;
   members: Member[];
 };

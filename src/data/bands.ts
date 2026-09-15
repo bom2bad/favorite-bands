@@ -2,77 +2,120 @@ import type { Band } from "@/types/band";
 
 export const bands: Band[] = [
   {
-    id: 1,
-    name: "Steve Lacy",
-    type: "solo",
-    genre: "R&B / Indie",
-    description:
-      "Steve Lacy is an American singer, songwriter, guitarist, and record producer.",
-    image: "/images/bands/steve-lacy.jpg",
+  id: 1,
+  name: "THREE MAN DOWN",
+  type: "band",
+  genre: "Pop Rock",
+  description:
+    "Three Man Down is a Thai pop rock band from Bangkok, known for its distinctive sound, emotional lyrics, and energetic performances.",
 
-    members: [
-      {
-        id: 1,
-        name: "Steve Lacy",
-        role: "Vocal / Guitar / Producer",
-      },
-    ],
-  },
+  image: "/images/bands/three-man-down.jpg",
 
-  {
-    id: 2,
-    name: "YENTED",
-    type: "band",
-    genre: "Indie Pop / Pop Rock",
-    description:
-      "YENTED is a Thai independent band from Phayao, known for its distinctive blend of pop and various musical styles.",
-
-    image: "/images/bands/yented.jpg",
-
-    members: [
-      {
-        id: 1,
-        name: "Jao",
-        role: "Vocal",
-      },
-      {
-        id: 2,
-        name: "Toon",
-        role: "Guitar",
-      },
-      {
-        id: 3,
-        name: "Karn",
-        role: "Guitar",
-      },
-      {
-        id: 4,
-        name: "Preung",
-        role: "Bass",
-      },
-      {
-        id: 5,
-        name: "Bew",
-        role: "Drum",
-      },
-    ],
-  },
+  members: [
+    {
+      id: 1,
+      name: "กิต",
+      role: "Vocal",
+      image: "/images/members/kit.jpg"
+    },
+    {
+      id: 2,
+      name: "ตูน",
+      role: "Guitar",
+      image: "/images/members/toon.jpg"
+    },
+    {
+      id: 3,
+      name: "เต",
+      role: "Drum",
+      image: "/images/members/thay.jpg"
+    },
+    {
+      id: 4,
+      name: "เส็ง",
+      role: "Synthesizer",
+      image: "/images/members/seng.jpg"
+    },
+    {
+      id: 5,
+      name: "โอม",
+      role: "Bass",
+      image: "/images/members/om.jpg"
+    }
+  ],
+  yearFounded: 2013
+},
+   
 
   {
-    id: 3,
-    name: "The TOYS",
-    type: "solo",
-    genre: "Pop / R&B / Synth-Pop",
-    description:
-      "The TOYS, also known as Toy Thanwa Boonsoongnern, is a Thai singer, songwriter, guitarist, and music producer.",
-    image: "/images/bands/the-toys.jpg",
+  id: 2,
+  name: "SLOT MACHINE",
+  type: "band",
+  genre: "Alternative Rock / Electronic Rock",
+  description:
+    "Slot Machine is a Thai rock band known for their distinctive alternative rock sound, powerful vocals, and electronic elements.",
 
-    members: [
-      {
-        id: 1,
-        name: "The TOYS",
-        role: "Vocal / Guitar / Songwriter / Producer",
-      },
-    ],
-  },
+  image: "/images/bands/slot-machine.jpg",
+
+  members: [
+    {
+      id: 1,
+      name: "เฟิด",
+      role: "Vocal",
+      image: "/images/members/foet.jpg"
+    },
+    {
+      id: 2,
+      name: "วิทย์",
+      role: "Guitar",
+      image: "/images/members/vit.jpg"
+    },
+    {
+      id: 3,
+      name: "แก๊ก",
+      role: "Bass",
+      image: "/images/members/gag.jpg"
+    },
+  ],
+  yearFounded: 2000
+},
+
+  {
+  id: 3,
+  name: "TATTOO COLOUR",
+  type: "band",
+  genre: "Pop / Alternative Rock",
+  description:
+    "TATTOO COLOUR is a Thai pop rock band known for their catchy melodies, creative songwriting, and distinctive musical style.",
+
+  image: "/images/bands/tattoo-colour.jpg",
+
+  members: [
+    {
+      id: 1,
+      name: "ดิม",
+      role: "Vocal",
+      image: "/images/members/dim.jpg"
+    },
+    {
+      id: 2,
+      name: "รัฐ",
+      role: "Guitar",
+      image: "/images/members/ruzz.jpg"
+    },
+    {
+      id: 3,
+      name: "จั๊มป์",
+      role: "Bass",
+      image: "/images/members/jump.jpg"
+    },
+    {
+      id: 4,
+      name: "ตง",
+      role: "Drum",
+      image: "/images/members/tong.jpg"
+    },
+  ],
+  yearFounded: 2006
+},
 ];
